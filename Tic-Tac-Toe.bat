@@ -11,16 +11,7 @@ set box7=
 set box8=
 set box9=
 :menu
-echo 			=======================
-echo 			Welcome to Tic-Tac-Toe!
-echo 			=======================
-echo  =========
-echo   1) Play
-echo  =========
-echo   2) Help
-echo  =========
-echo   3) Exit
-echo  =========
+call :displayText " 			=======================" & echo.  			Welcome to Tic-Tac-Toe! & echo.  			======================= & echo.  ========= & echo.   1) Play & echo.  ========= & echo.   2) Help & echo.  ========= & echo.   3) Exit & echo.  ========= & echo.
 set /p menu= 
 if %menu% equ 1 goto start
 if %menu% equ 2 goto help
@@ -39,33 +30,18 @@ pause
 cls
 goto menu
 :start
-call :displayText " Hello player!" & echo. & echo. What is your name?
-echo.
+call :displayText " Hello player!" & echo. & echo. What is your name? & echo.
 set /p name=
 call :displayText " Welcome %name%, I am the Game Master" & echo. & echo.
 pause
 :firstSelect
-call :displayText " Please select your gamemode, %name%." & echo.
-echo  ==================
-echo   1) Single Player
-echo  ==================
-echo   2) Two Player
-echo  ==================
-echo.
+call :displayText " Please select your gamemode, %name%." & echo. & echo. ================== & echo.  1) Single Player & echo. ================== & echo.  2) Two Player & echo. ================== & echo.
 set /p select=
 if %select% equ 1 goto single
 if %select% equ 2 goto double
 if %select% neq 1 goto firstSelect
 :single
-call :displayText " Please select your difficulty, %name%." & echo.
-echo  ===========
-echo   1) Easy
-echo  ===========
-echo   2) Medium
-echo  ===========
-echo   3) Hard
-echo  ===========
-echo.
+call :displayText " Please select your difficulty, %name%." & echo. & echo. =========== & echo.  1) Easy & echo. =========== & echo.  2) Medium & echo. =========== & echo.  3) Hard & echo. =========== & echo.
 set /p difficulty=
 if %difficulty% equ 1 goto play
 if %difficulty% equ 2 goto play
