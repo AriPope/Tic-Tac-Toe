@@ -18,42 +18,54 @@ if %menu% equ 2 goto help
 if %menu% equ 3 exit
 if %menu% neq 1 goto menu
 :help
-cls 
-echo.
-echo It's Tic Tac Toe, are you an idiot?
-echo.
+call :displayText "It's Tic Tac Toe, are you an idiot?"
 pause
-cls
-echo.
-echo All you have to do is follow the on screen commands.
-echo.
+call :displayText "All you have to do is follow the on screen commands."
 pause
 cls
 goto menu
-:start
+:displayText
 cls
 echo.
-echo Hello player, 
+echo %~1%
+goto:EOF
+:drawBoard
+pause
+cls
 echo.
-echo What is your name?
+echo.
+echo.
+echo  1 I 2 I 3
+echo ___________
+echo.
+echo  4 I 5 I 6
+echo ___________
+echo.
+echo  7 I 8 I 9
+echo.
+echo.
+echo Where would you like to move (1-9)?
+set /p selection=
+goto:EOF
+:checkForWinner
+goto:EOF
+:start
+call :displayText "Hello player!" & echo. & echo.What is your name?
 echo.
 set /p name=
-cls
-echo.
-echo Welcome %name%, I am the Game Master
-echo.
+call :displayText "Welcome %name%, I am the Game Master"
 pause
 :first select
 cls
 echo.
 echo Please select your gamemode, %name%.
 echo.
-echo SINGLE-PLAYER or TWO-PLAYER?
+echo Enter '1' for SINGLE-PLAYER or '2' for TWO-PLAYER
 echo.
 set /p select=
-if %select% equ SINGLE-PLAYER goto single
-if %select% equ TWO-PLAYER goto double
-if %select% neq SINGLE-PLAYER goto first select
+if %select% equ 1 goto single
+if %select% equ 2 goto double
+if %select% neq 1 goto first select
 :single
 cls
 echo.
@@ -81,3 +93,7 @@ pause
 goto play
 :play
 cls
+call :drawBoard
+pause
+echo Hello
+pause
