@@ -1,6 +1,16 @@
 @echo off
 title Tic-Tac-Toe
 color 0F
+:boxes
+set box1= 
+set box2= 
+set box3= 
+set box4= 
+set box5= 
+set box6= 
+set box7= 
+set box8= 
+set box9= 
 goto menu
 :displayText
 cls
@@ -48,27 +58,16 @@ goto play
 :play
 cls
 call :drawBoard
-pause
-:boxes
-set box1= 
-set box2= 
-set box3= 
-set box4= 
-set box5= 
-set box6= 
-set box7= 
-set box8= 
-set box9= 
 :drawBoard
 cls
 echo.
 echo.
 echo.
-echo                 %box7%  I %box8%  I %box9%
+echo                 %box7% I %box8% I %box9%
 echo                -----------
-echo                 %box4%  I %box5%  I %box6%
+echo                 %box4% I %box5% I %box6%
 echo                -----------
-echo                 %box1%  I %box2%  I %box3%
+echo                 %box1% I %box2% I %box3%
 echo.
 echo.
 echo    Where would you like to move (1-9)?
@@ -77,15 +76,15 @@ echo                   7 8 9
 echo                   4 5 6
 echo                   1 2 3
 set /p move=
-if %move% equ 1 set box1= X
-if %move% equ 2 set box2= X
-if %move% equ 3 set box3= X
-if %move% equ 4 set box4= X
-if %move% equ 5 set box5= X
-if %move% equ 6 set box6= X
-if %move% equ 7 set box7= X
-if %move% equ 8 set box8= X
-if %move% equ 9 set box9= X
+if %move% equ 1 set box1=X
+if %move% equ 2 set box2=X
+if %move% equ 3 set box3=X
+if %move% equ 4 set box4=X
+if %move% equ 5 set box5=X
+if %move% equ 6 set box6=X
+if %move% equ 7 set box7=X
+if %move% equ 8 set box8=X
+if %move% equ 9 set box9=X
 if %move% neq 1 goto play
 goto:EOF
 :checkForWinner
